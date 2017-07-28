@@ -9,7 +9,9 @@
   "author": "Shrey Jain",
   "license": "MIT",
   "dependencies": {
+    "assert-plus": "^1.0.0",
     "feathers-errors": "^2.9.1",
-    "feathers-hooks-common": "^3.6.1"
+    "feathers-hooks-common": "^3.6.1",
+    "lodash.merge": "^4.6.0"
   }
 }
