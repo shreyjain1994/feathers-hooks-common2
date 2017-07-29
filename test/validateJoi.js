@@ -1,10 +1,16 @@
 var validate = require('../lib/validateJoi');
 var chai = require('chai');
 var expect = chai.expect;
+var assert = chai.assert;
 var format = require('util').format;
-var joi = require('joi');
-
-var schema = {};
+var Joi = require('joi');
+var utils = require("./utils");
+var constants = require('./constants');
+var methods = constants.context.methods;
+var types = constants.context.types;
+var _ = require('lodash');
+var errors = require('feathers-errors');
+var schema = {foo:Joi.string().required()};
 
 
 describe('validateJoi', function () {
@@ -89,7 +95,7 @@ describe('validateJoi', function () {
         });
 
         it('works when given valid parameter options.joi', function(done){
-            validate(schema, 'foobar', {joi:joi});
+            validate(schema, 'foobar', {joi:Joi});
             done();
         });
 
@@ -97,5 +103,36 @@ describe('validateJoi', function () {
             validate(schema, 'foobar');
             done();
         });
-    })
+    });
+
+    it('throws when validation fails', function(done){
+        var oldCtx = new utils.BaseContext(methods.create, types.before);
+        oldCtx.data = {};
+        var newCtx = _.cloneDeep(oldCtx);
+
+        //outside willThrow since creating the hook should not raise any errors
+        var hook = validate(schema, 'data');
+
+        function willThrow(){
+            hook(newCtx);
+        }
+        expect(willThrow).to.throw(errors.BadRequest);
+
+        //context should not be modified by hook
+        assert.deepEqual(newCtx, oldCtx);
+
+        done();
+    });
+
+    it('noops when validation passes', function(done){
+        var oldCtx = new utils.BaseContext(methods.create, types.before);
+        oldCtx.data = {foo:'bar'};
+        var newCtx = _.cloneDeep(oldCtx);
+        validate(schema, 'data')(newCtx);
+
+        //context should not be modified by hook
+        assert.deepEqual(newCtx, oldCtx);
+
+        done();
+    });
 });
