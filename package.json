@@ -1,12 +1,26 @@
 {
   "name": "feathers-hooks-common2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Common, reusable feathers hooks which are not available in feathers-hooks-common.",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/**/*.js"
   },
   "author": "Shrey Jain",
+  "bugs": {
+    "url": "https://github.com/shreyjain1994/feathers-hooks-common2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shreyjain1994/feathers-hooks-common2.git"
+  },
+  "keywords": [
+    "feathers",
+    "feathersjs",
+    "hook",
+    "hooks"
+  ],
+  "homepage": "https://github.com/shreyjain1994/feathers-hooks-common2#readme",
   "license": "MIT",
   "dependencies": {
     "assert-plus": "^1.0.0",
