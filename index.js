@@ -1,4 +1,7 @@
+var disableMultiItemCreate = require('./lib/disableMultiItemCreate');
+var validateJoi = require('./lib/validateJoi');
+
 module.exports = {
-    disableMultiItemCreate:require('./lib/disableMultiItemCreate'),
-    validateJoi:require('./lib/validateJoi')
+    disableMultiItemCreate: disableMultiItemCreate,
+    validateJoi: validateJoi
 };
