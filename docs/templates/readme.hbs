@@ -1,0 +1,30 @@
+<!--@formatter:off-->
+# feathers-hooks-common2
+
+Common, reusable hooks for feathers services which are not available in the main [feathers-hooks-common](https://github.com/feathersjs/feathers-hooks-common) respository.
+
+## Installation
+
+    npm install feathers-hooks-common2
+
+## Hooks
+
+{{#functions}}
+- [{{{name}}}](#{{{name}}})
+{{/functions}}
+
+{{#functions}}
+### {{{name}}}<a name="{{{name}}}"></a>
+
+{{#if name}}{{#sig~}}
+#### `{{{name}}}{{#if @methodSign}}{{@methodSign}}{{/if}}` [source]({{repoStatic '/blob/master/lib/'}}{{meta.filename}})
+{{~/sig}}{{/if}}
+
+{{>description~}}
+
+{{> params-list}}
+{{/functions}}
+
+## License
+
+MIT.
