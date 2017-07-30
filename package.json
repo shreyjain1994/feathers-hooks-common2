@@ -1,6 +1,6 @@
 {
   "name": "feathers-hooks-common2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Common, reusable feathers hooks which are not available in feathers-hooks-common.",
   "main": "index.js",
   "scripts": {
